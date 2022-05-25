@@ -1,15 +1,21 @@
 import { useState } from "react";
 import Button from "../../components/Button";
 import MainLayout from "../../components/MainLayout";
+import { useAuthContext } from "../../context/AuthContext";
 import "./index.css";
 
 const Refer = (props) => {
     const [showUrl, setShowUrl] = useState(false);
     const [coppied, setIsCoppied] = useState(false);
+    const { currentAccount } = useAuthContext();
 
     const handleCopyToClipboard = () => {
         setIsCoppied(true);
-        navigator.clipboard.writeText(`${window.location.origin}?referrer=0x8306865FAb8dEC66a1d9927d9ffC4298500cF7Ed`);
+        navigator.clipboard.writeText(getReferrerUrl());
+    }
+
+    const getReferrerUrl = () => {
+        return window.location.origin+'?referrer='+currentAccount;
     }
 
     return (
@@ -21,10 +27,10 @@ const Refer = (props) => {
                 {
                     coppied ?
                     <span className="coppied__disclaimer">URL coppied to clipboard!</span> :
-                    <span onClick={handleCopyToClipboard}>{window.location.origin}?referrer=0x8306865FAb8dEC66a1d9927d9ffC4298500cF7Ed</span>
+                    <span onClick={handleCopyToClipboard}>{getReferrerUrl()}</span>
                 }
             </div>
-            <Button text="GET REFERRER URL" method={() => {setShowUrl(true)}}/>
+            <Button text={showUrl ? 'CLICK ON URL TO COPY' : 'GET REFERRER URL'} method={() => {setShowUrl(true)}}/>
         </MainLayout>
     );
 }
