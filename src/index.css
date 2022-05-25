@@ -37,6 +37,12 @@ button > span {
   color: white;
 }
 
+small {
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
+}
+
 .unselectable {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */

@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import Button from "../../components/Button";
 import MainLayout from "../../components/MainLayout";
 import "./index.css";
 
 const Mint = (props) => {
     const [mintQuantity, setMintQuantity] = useState(1);
+    const [searchParams] = useSearchParams();
 
     const handleAddMintQuantity = () => {
         if (mintQuantity < 5) {
@@ -18,6 +20,9 @@ const Mint = (props) => {
         }
     }
 
+    useEffect(() => {
+        console.log(searchParams.get("referrer"));
+    });
 
     return (
         <MainLayout>
@@ -36,6 +41,15 @@ const Mint = (props) => {
                 </div>
             </div>
             <Button text="MINT 0.15 $ETH"/>
+            {
+                searchParams.get("referrer") ?
+                <div className="referrer__container">
+                    <small>Referrer address:</small>
+                    <small>{searchParams.get("referrer")}</small>
+                </div>
+                :
+                null
+            }
         </MainLayout>
     );
 }
