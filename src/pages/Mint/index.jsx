@@ -28,7 +28,7 @@ const Mint = (props) => {
         <MainLayout>
             <h1>Mint your peruvian dog!</h1>
             <span className="minted__text">Currently minted</span>
-            <span className="minted__text">1000 / 4000</span>
+            <span className="minted__text">0 / 3333</span>
             <div className="quantity__container">
                 <div className="quantity__button" onClick={handleMinusMintQuantity}>
                     <span className="quantity__text unselectable">-</span>
@@ -40,7 +40,7 @@ const Mint = (props) => {
                     <span className="quantity__text unselectable">+</span>
                 </div>
             </div>
-            <Button text="MINT 0.15 $ETH"/>
+            <Button text="COMMING SOON" method={()=>{}}/>
             {
                 searchParams.get("referrer") ?
                 <div className="referrer__container">
