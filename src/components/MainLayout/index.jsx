@@ -8,7 +8,7 @@ import ReactGA from 'react-ga';
 const MainLayout = (props) => {
 
     useEffect(() => {
-        ReactGA.initialize('UA-232339733');
+        ReactGA.initialize('UA-232339733-1');
     }, []);
 
     return (
