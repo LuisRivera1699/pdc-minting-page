@@ -2,8 +2,15 @@ import "./index.css";
 import dogs from "../../assets/dogs.gif";
 import Header from "../Header";
 import TabSelector from "../TabSelector";
+import { useEffect } from "react";
+import ReactGA from 'react-ga';
 
 const MainLayout = (props) => {
+
+    useEffect(() => {
+        ReactGA.initialize('G-Q8V329831S');
+    }, []);
+
     return (
         <div className="page__container">
             <Header/>
