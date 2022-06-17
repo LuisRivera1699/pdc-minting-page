@@ -3,6 +3,8 @@ import { useSearchParams } from "react-router-dom";
 import Button from "../../components/Button";
 import MainLayout from "../../components/MainLayout";
 import "./index.css";
+import ReactGA from 'react-ga';
+
 
 const Mint = (props) => {
     const [mintQuantity, setMintQuantity] = useState(1);
@@ -23,6 +25,10 @@ const Mint = (props) => {
     useEffect(() => {
         console.log(searchParams.get("referrer"));
     });
+
+    useEffect(() => {
+        ReactGA.pageview('/mint');
+    }, []);
 
     return (
         <MainLayout>

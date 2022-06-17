@@ -1,7 +1,9 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import Button from "../../components/Button";
 import MainLayout from "../../components/MainLayout";
 import { useAuthContext } from "../../context/AuthContext";
+import ReactGA from 'react-ga';
 import "./index.css";
 
 const Refer = (props) => {
@@ -12,11 +14,19 @@ const Refer = (props) => {
     const handleCopyToClipboard = () => {
         setIsCoppied(true);
         navigator.clipboard.writeText(getReferrerUrl());
+        ReactGA.event({
+            category: 'New Referrer',
+            action: `New referrer: ${currentAccount}`
+        });
     }
 
     const getReferrerUrl = () => {
         return window.location.origin+'?referrer='+currentAccount;
     }
+    
+    useEffect(() => {
+        ReactGA.pageview('/refer');
+    }, []);
 
     return (
         <MainLayout>
