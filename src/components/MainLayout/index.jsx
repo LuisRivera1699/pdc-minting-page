@@ -4,6 +4,8 @@ import Header from "../Header";
 import TabSelector from "../TabSelector";
 import { useEffect } from "react";
 import ReactGA from 'react-ga';
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const MainLayout = (props) => {
 
@@ -25,6 +27,7 @@ const MainLayout = (props) => {
                     </div>
                 </div>
             </section>
+            <ToastContainer position="bottom-right"/>
         </div>
     );
 }

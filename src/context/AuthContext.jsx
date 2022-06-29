@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { toast } from 'react-toastify';
 
 const AuthContext = createContext();
 AuthContext.displayName = 'AuthContext';
@@ -36,7 +37,7 @@ export const AuthProvider = ({children}) => {
             setCurrentAccount(accounts[0])
         } catch (error) {
             console.log(error);
-            alert(error.message);
+            toast.error(error.message);
         }
     }
 
