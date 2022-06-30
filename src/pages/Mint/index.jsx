@@ -153,7 +153,7 @@ const Mint = (props) => {
                 totalSupply > 0 ?
                 <div className="rrss__container">
                     <small>See our collection on Opensea.</small>
-                    <a href="https://opensea.io/collection/peruvian-dog-club" target="_blank" rel="noreferrer"><img src={openseaSVG} alt=""/></a>
+                    <a href="https://opensea.io/collection/peruvian-dog-club-1" target="_blank" rel="noreferrer"><img src={openseaSVG} alt=""/></a>
                 </div> :
                 null
             }
